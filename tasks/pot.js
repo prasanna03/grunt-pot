@@ -90,12 +90,12 @@ module.exports = function(grunt) {
 		headerOptions += " --add-comments='"+options.comment_tag+"'";
 	}
 
-	//Generate list of files to scan
-	this.files.forEach(function(file) {
-		if( !grunt.file.isDir( file.src[0] ) ){
-			inputFiles +=  " " + file.src[0];
-		}
-	});
+	//Generate list of files to scan   
+        this.files[0].src.forEach(function(file){
+            if( !grunt.file.isDir( file ) ){
+                inputFiles +=  " " + file;
+            }
+        });
 
 	//Compile and run command
 	var exec = require('child_process').exec;
